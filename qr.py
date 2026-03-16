@@ -11,9 +11,13 @@ cloudinary.config(
 )
 
 # ===== FOTO PAD =====
-foto_pad="C:\Users\Brian Goethals\OneDrive - vlot\Afbeeldingen\Jeugdfoto's\camera\2026\100_0393.JPG"
+foto_pad = r"C:\Users\Brian Goethals\OneDrive - vlot\Afbeeldingen\Jeugdfoto's\camera\2026\100_0393.JPG"
+
+# ===== GITHUB PAGE =====
+base_site = "https://JOUW-GEBRUIKERSNAAM.github.io/foto-download/"
 
 try:
+
     # uniek ID maken
     unique_id = str(uuid.uuid4())
 
@@ -29,10 +33,16 @@ try:
     print("Foto geupload:")
     print(image_url)
 
+    # URL voor website maken
+    website_url = f"{base_site}?img={image_url}"
+
+    print("QR link:")
+    print(website_url)
+
     # QR code maken
     qr_bestand = f"qr-{unique_id}.png"
 
-    img = qrcode.make(image_url)
+    img = qrcode.make(website_url)
     img.save(qr_bestand)
 
     print("QR code opgeslagen als:")
