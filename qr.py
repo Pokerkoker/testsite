@@ -14,7 +14,7 @@ cloudinary.config(
 foto_pad = r"C:\Users\Brian Goethals\OneDrive - vlot\Afbeeldingen\Jeugdfoto's\camera\2026\100_0393.JPG"
 
 # ===== GITHUB PAGE =====
-base_site = "https://pokerkoker.github.io/testsite/"
+base_site = "http://www.photoboothvlottest.be/"
 
 try:
 
