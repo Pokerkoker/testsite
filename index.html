@@ -6,7 +6,6 @@
 <title>Download je foto</title>
 
 <style>
-
 body{
 font-family: Arial, sans-serif;
 background:#EDE4C7;
@@ -39,12 +38,13 @@ background:#1A5974;
 color:white;
 text-decoration:none;
 border-radius:8px;
+border:none;
+cursor:pointer;
 }
 
 .button:hover{
 background:#0056b3;
 }
-
 
 .logo{
 position: fixed;
@@ -55,14 +55,11 @@ opacity: 0.9;
 z-index: 1000;
 }
 
-
 .mobile-nav{
 display:none;
 }
 
-/* ===== GSM ===== */
 @media (max-width: 600px){
-
 .mobile-nav{
 display:flex;
 align-items:center;
@@ -88,26 +85,20 @@ font-weight:bold;
 color:#1A5974;
 }
 
-/* verberg los logo op gsm */
 .logo{
 display:none;
 }
 
-/* ruimte bovenaan zodat content niet onder navbar zit */
 body{
 padding-top:70px;
 }
-
 }
-
 </style>
 </head>
 
 <body>
 
-
 <img src="Logo_photobooth.png" alt="logo" class="logo">
-
 
 <div class="mobile-nav">
   <img src="Logo_photobooth.png" alt="logo">
@@ -115,37 +106,54 @@ padding-top:70px;
 </div>
 
 <div class="container">
-
 <h2>Je foto</h2>
 
-<img id="photo">
+<img id="photo" src="">
 
 <br>
 
-<a id="downloadBtn" class="button">⬇️ Download foto</a>
+<button id="downloadBtn" class="button">⬇️ Download foto</button>
 
 <p style="margin-top:15px;color:#666;">
 Stappenplan : 
-<br>
-1. druk op de knop download foto.
-<br>
-2. hou de foto ingedrukt.
-<br>
-3. druk op foto downloaden.
-<br>
-4. zoek de foto's binnen bestanden binnen downloads.
+<br>1. druk op de knop download foto.
+<br>2. hou de foto ingedrukt.
+<br>3. druk op foto downloaden.
 </p>
 
 </div>
 
 <script>
-
 const params = new URLSearchParams(window.location.search);
 const img = params.get("img");
 
-document.getElementById("photo").src = img;
-document.getElementById("downloadBtn").href = img;
+if(img){
+  document.getElementById("photo").src = img;
+}else{
+  document.querySelector(".container").innerHTML = "<h2>Geen foto gevonden. Scan de QR code opnieuw</h2>";
+}
 
+
+document.getElementById("downloadBtn").addEventListener("click", async () => {
+  if(!img) return;
+
+  try {
+    const response = await fetch(img, {mode: 'cors'});
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "photobooth.jpg";
+    document.body.appendChild(a);
+    a.click();
+
+    a.remove();
+    window.URL.revokeObjectURL(url);
+  } catch (e) {
+    alert("Download mislukt. Probeer foto lang in te drukken.");
+  }
+});
 </script>
 
 </body>
