@@ -12,6 +12,7 @@ font-family: Arial, sans-serif;
 background:#EDE4C7;
 text-align:center;
 padding:20px;
+margin:0;
 }
 
 .container{
@@ -44,14 +45,78 @@ border-radius:8px;
 background:#0056b3;
 }
 
+
+.logo{
+position: fixed;
+top: 15px;
+left: 15px;
+width: 100px;
+opacity: 0.9;
+z-index: 1000;
+}
+
+
+.mobile-nav{
+display:none;
+}
+
+/* ===== GSM ===== */
+@media (max-width: 600px){
+
+.mobile-nav{
+display:flex;
+align-items:center;
+gap:10px;
+position: fixed;
+top:0;
+left:0;
+width:100%;
+background:white;
+padding:10px 15px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+z-index:1000;
+}
+
+.mobile-nav img{
+width:40px;
+height:auto;
+}
+
+.mobile-nav span{
+font-size:18px;
+font-weight:bold;
+color:#1A5974;
+}
+
+/* verberg los logo op gsm */
+.logo{
+display:none;
+}
+
+/* ruimte bovenaan zodat content niet onder navbar zit */
+body{
+padding-top:70px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+
+<img src="Logo_photobooth.png" alt="logo" class="logo">
+
+
+<div class="mobile-nav">
+  <img src="Logo_photobooth.png" alt="logo">
+  <span>Photobooth</span>
+</div>
+
 <div class="container">
 
-<h2>📸 Je foto</h2>
+<h2>Je foto</h2>
 
 <img id="photo">
 
@@ -61,10 +126,14 @@ background:#0056b3;
 
 <p style="margin-top:15px;color:#666;">
 Stappenplan : 
-  1. druk op de knop download foto.
-  2. hou de foto ingedrukt.
-  3. druk op foto downloaden.
-  4. zoek de foto's binnen bestanden --> binnen downloads
+<br>
+1. druk op de knop download foto.
+<br>
+2. hou de foto ingedrukt.
+<br>
+3. druk op foto downloaden.
+<br>
+4. zoek de foto's binnen bestanden binnen downloads.
 </p>
 
 </div>
