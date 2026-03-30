@@ -76,7 +76,6 @@ img{
 
   .mobile-nav img{
     width:40px;
-    height:auto;
   }
 
   .mobile-nav span{
@@ -115,39 +114,46 @@ img{
   line-height: 1.6;
 }
 
-/* LOGO TRIANGLE */
+/* ✅ RESPONSIVE LOGO GRID */
 .logo-row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-top: 0;
+  gap: 20px;
 }
 
+/* bovenste logo */
 .logo-top {
-  width: 220px;
-  height: 160px;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
+.logo-top img {
+  max-width: 80%;
+  height: auto;
+}
+
+/* onderste rijen */
 .logo-bottom {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 }
 
-
 .logo-bottom div {
-  width: 120px;
-  height: 70px;
+  flex: 1 1 100px;
+  max-width: 120px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
+/* algemene logo styling */
 .logo-row img {
-  
+  width: 100%;
+  height: auto;
   object-fit: contain;
   opacity: 0.85;
   transition: 0.3s;
@@ -158,13 +164,16 @@ img{
   transform: scale(1.05);
 }
 
+/* mobiel optimalisatie */
+@media (max-width: 600px) {
+  .logo-top img {
+    max-width: 90%;
+  }
 
-.anima{
-  width: 220px;
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .logo-bottom div {
+    flex: 1 1 80px;
+    max-width: 90px;
+  }
 }
 </style>
 </head>
@@ -214,18 +223,19 @@ img{
       <img src="Logo_VLOT_campus_Sint-Laurentius.jpg" alt="Logo Vlot">
     </div>
 
-    <!-- onder -->
+    <!-- onder rij 1 -->
     <div class="logo-bottom">
-      <div><img src="rtc-logo-1500.png" alt = "logo rtc"></div>
-      <div><img src="anima_2.png" alt="Logo Anima" class="anima"></div>
+      <div><img src="rtc-logo-1500.png" alt="logo rtc"></div>
+      <div><img src="anima_2.png" alt="Logo Anima"></div>
     </div>
+
+    <!-- onder rij 2 -->
     <div class="logo-bottom">
       <div><img src="CO-VALENT.png" alt="Logo CO-VALENT"></div>
-      <div><img src="MTECH.png" alt="Logo MTECH" ></div>
-      <div><img src="pov-logo-rgb.png" alt="Logo Provinice"></div>
-
+      <div><img src="MTECH.png" alt="Logo MTECH"></div>
+      <div><img src="pov-logo-rgb.png" alt="Logo Provincie"></div>
     </div>
-      <br>
+
   </div>
 </div>
 
