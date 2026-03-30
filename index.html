@@ -114,12 +114,12 @@ img{
   line-height: 1.6;
 }
 
-/* ✅ RESPONSIVE LOGO GRID */
+/* 🔥 COMPACTE LOGO LAYOUT */
 .logo-row {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 6px; /* minder ruimte */
 }
 
 /* bovenste logo */
@@ -130,8 +130,9 @@ img{
 }
 
 .logo-top img {
-  max-width: 80%;
+  max-width: 75%;
   height: auto;
+  margin: 0;
 }
 
 /* onderste rijen */
@@ -139,24 +140,25 @@ img{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 8px; /* minder ruimte */
   width: 100%;
 }
 
 .logo-bottom div {
-  flex: 1 1 100px;
-  max-width: 120px;
+  flex: 1 1 90px;
+  max-width: 100px;
   display: flex;
   justify-content: center;
 }
 
-/* algemene logo styling */
+/* logo styling */
 .logo-row img {
   width: 100%;
   height: auto;
   object-fit: contain;
   opacity: 0.85;
   transition: 0.3s;
+  margin: 0; /* 🔥 verwijdert extra witruimte */
 }
 
 .logo-row img:hover {
@@ -164,15 +166,15 @@ img{
   transform: scale(1.05);
 }
 
-/* mobiel optimalisatie */
+/* mobiel */
 @media (max-width: 600px) {
   .logo-top img {
-    max-width: 90%;
+    max-width: 85%;
   }
 
   .logo-bottom div {
-    flex: 1 1 80px;
-    max-width: 90px;
+    flex: 1 1 75px;
+    max-width: 85px;
   }
 }
 </style>
@@ -223,13 +225,13 @@ img{
       <img src="Logo_VLOT_campus_Sint-Laurentius.jpg" alt="Logo Vlot">
     </div>
 
-    <!-- onder rij 1 -->
+    <!-- rij 1 -->
     <div class="logo-bottom">
       <div><img src="rtc-logo-1500.png" alt="logo rtc"></div>
       <div><img src="anima_2.png" alt="Logo Anima"></div>
     </div>
 
-    <!-- onder rij 2 -->
+    <!-- rij 2 -->
     <div class="logo-bottom">
       <div><img src="CO-VALENT.png" alt="Logo CO-VALENT"></div>
       <div><img src="MTECH.png" alt="Logo MTECH"></div>
